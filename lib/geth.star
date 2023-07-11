@@ -48,7 +48,9 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
         network_params["network_id"],
         network_params["deposit_contract_address"],
         network_params["genesis_delay"],
+        network_params["slots_per_epoch"],
         network_params["capella_fork_epoch"],
+        network_params["deneb_fork_epoch"],
     )
     return el_genesis_data
 

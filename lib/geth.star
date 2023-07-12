@@ -15,7 +15,7 @@ GENESIS_DATA_GENERATION_TIME = 5 * time.second
 NODE_STARTUP_TIME = 5 * time.second
 
 
-def run(plan, network_params, el_genesis_data, existing_el_clients = [], extra_params = []):
+def run(plan, network_params, el_genesis_data, image = CLIENT_IMAGE, existing_el_clients = [], extra_params = []):
     geth_prefunded_keys_artifact_name = plan.upload_files(
         static_files.GETH_PREFUNDED_KEYS_DIRPATH,
         name="geth-prefunded-keys",
@@ -31,7 +31,7 @@ def run(plan, network_params, el_genesis_data, existing_el_clients = [], extra_p
         plan,
         launcher,
         service_name,
-        CLIENT_IMAGE,
+        image,
         CLIENT_LOG_LEVEL,
         GLOBAL_LOG_LEVEL,
         # If empty, the node will be launched as a bootnode

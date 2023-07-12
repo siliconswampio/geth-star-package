@@ -15,7 +15,7 @@ GENESIS_DATA_GENERATION_TIME = 5 * time.second
 NODE_STARTUP_TIME = 5 * time.second
 
 
-def run(plan, network_params, el_genesis_data, image = CLIENT_IMAGE, existing_el_clients = [], extra_params = []):
+def run(plan, network_params, el_genesis_data, image = CLIENT_IMAGE, extra_params = [], existing_el_clients = []):
     geth_prefunded_keys_artifact_name = plan.upload_files(
         static_files.GETH_PREFUNDED_KEYS_DIRPATH,
         name="geth-prefunded-keys",

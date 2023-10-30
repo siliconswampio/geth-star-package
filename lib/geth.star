@@ -56,11 +56,5 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
     return el_genesis_data
 
 def generate_genesis_timestamp(plan, num_participants = 1):
-    python_response = plan.run_python("import time; return time.time()")
-    
-    try:
-        current_timestamp = float(python_response)
-    except ValueError:
-        fail("Failed to convert python_response to float.")
-
+    current_timestamp = float(plan.run_python("import time; return time.time()"))
     return int(current_timestamp + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME)

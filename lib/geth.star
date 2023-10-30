@@ -38,6 +38,7 @@ def run(plan, network_params, el_genesis_data, image = CLIENT_IMAGE, extra_param
         existing_el_clients,  # existing_el_clients
         0,0,0,0,
         extra_params,  # extra_params
+        extra_env_vars, # No idea what is
     )
 
 def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):

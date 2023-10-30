@@ -65,7 +65,7 @@ def generate_genesis_timestamp(plan, num_participants = 1):
     current_timestamp_string = python_response.get("timestamp")
     
     if current_timestamp_string == None:
-        raise Exception("Timestamp key not present in python_response")
-    
+        fail("Timestamp key not present in python_response")
+
     current_timestamp = float(current_timestamp_string)  
     return int(current_timestamp + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME)

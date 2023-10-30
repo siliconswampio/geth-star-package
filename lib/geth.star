@@ -58,11 +58,11 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
     return el_genesis_data
 
 def generate_genesis_timestamp(plan, num_participants = 1):
-    unix_timestamp_script = """
+    unix_timestamp_script = f"""
 import time
 current_time = time.time()
 genesis_data_generation_time = 5  # You might need to adjust this value.
-node_startup_time = 5 * num_participants  # Adjust this too if needed.
+node_startup_time = 5 * {num_participants}  # Adjust this too if needed.
 calculated_time = int(current_time + genesis_data_generation_time + node_startup_time)
 calculated_time
 """

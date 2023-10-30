@@ -1,9 +1,9 @@
 # Imports
-geth = import_module("github.com/kurtosis-tech/ethereum-package/src/el/geth/geth_launcher.star")
-genesis_constants = import_module("github.com/kurtosis-tech/ethereum-package/src/prelaunch_data_generator/genesis_constants/genesis_constants.star")
-genesis_data_generator = import_module("github.com/kurtosis-tech/ethereum-package/src/prelaunch_data_generator/el_cl_genesis/el_cl_genesis_generator.star")
-static_files = import_module("github.com/kurtosis-tech/ethereum-package/src/static_files/static_files.star")
-input_parser = import_module("github.com/kurtosis-tech/ethereum-package/src/package_io/input_parser.star")
+geth = import_module("github.com/kurtosis-tech/eth-network-package/src/el/geth/geth_launcher.star")
+genesis_constants = import_module("github.com/kurtosis-tech/eth-network-package/src/prelaunch_data_generator/genesis_constants/genesis_constants.star")
+genesis_data_generator = import_module("github.com/kurtosis-tech/eth-network-package/src/prelaunch_data_generator/el_cl_genesis/el_cl_genesis_generator.star")
+static_files = import_module("github.com/kurtosis-tech/eth-network-package/static_files/static_files.star")
+input_parser = import_module("github.com/kurtosis-tech/eth-network-package/package_io/input_parser.star")
 
 # Constants
 CLIENT_SERVICE_NAME_PREFIX = "el-client-"
@@ -52,6 +52,7 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
         network_params["seconds_per_slot"],
         network_params["capella_fork_epoch"],
         network_params["deneb_fork_epoch"],
+        network_params["electra_fork_epoch"],
     )
     return el_genesis_data
 

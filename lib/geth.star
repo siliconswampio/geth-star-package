@@ -58,8 +58,8 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
 def generate_genesis_timestamp(plan, num_participants = 1):
     python_response = plan.run_python("import time; return {'timestamp': time.time()}")  
     
-    plan.print("Type of python_response:", type(python_response))  # Diagnostic 1
-    plan.print("Contents of python_response:", python_response)   # Diagnostic 2
+    plan.print("Type of python_response: {}".format(type(python_response)))  # Diagnostic 1
+    plan.print("Contents of python_response: {}".format(python_response))   # Diagnostic 2
     
     current_timestamp_string = python_response.get("timestamp")  # Diagnostic 3: Safely handle missing keys
 

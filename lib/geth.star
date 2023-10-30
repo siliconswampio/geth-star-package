@@ -58,11 +58,6 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
 def generate_genesis_timestamp(plan, num_participants = 1):
     python_response = plan.run_python("import time; return {'timestamp': time.time()}")  # Gets current timestamp in seconds since the epoch
     
-    print("Python Response:", python_response)  # Add this line to print the python response
-    
-#    if "timestamp" not in python_response:
-#        raise Exception("Failed to fetch the timestamp from the Python response")
-    
     current_timestamp_string = str(python_response["timestamp"])  # Extract timestamp
     current_timestamp = float(current_timestamp_string)  # Convert string to float
     return int(current_timestamp + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME)

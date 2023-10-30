@@ -67,4 +67,4 @@ calculated_time = int(current_time + genesis_data_generation_time + node_startup
 return calculated_time
 """
 
-    return plan.run_python(unix_timestamp_script).unix
+    return plan.run_python(unix_timestamp_script)

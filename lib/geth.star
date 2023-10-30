@@ -71,4 +71,4 @@ def getTime():
 getTime()
 """
 
-    return plan.run_python(unix_timestamp_script)
+    return (plan.run_python(unix_timestamp_script)).unix

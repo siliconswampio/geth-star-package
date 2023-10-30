@@ -63,7 +63,8 @@ import time
 current_time = time.time()
 genesis_data_generation_time = 5  # You might need to adjust this value.
 node_startup_time = 5 * num_participants  # Adjust this too if needed.
-return int(current_time + genesis_data_generation_time + node_startup_time)
+calculated_time = int(current_time + genesis_data_generation_time + node_startup_time)
+calculated_time
 """
 
     return plan.run_python(unix_timestamp_script)

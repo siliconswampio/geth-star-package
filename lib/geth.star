@@ -56,14 +56,11 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
     return el_genesis_data
 
 def generate_genesis_timestamp(plan, num_participants = 1):
-    python_response = plan.run_python("import time; return {'timestamp': time.time()}")  
+    python_response = plan.run_python("import time; return time.time()")
     
-    plan.print("Type of python_response: {}".format(type(python_response)))  # Diagnostic 1
-    plan.print("Contents of python_response: {}".format(python_response))   # Diagnostic 2
-    
-    current_timestamp_string = python_response["timestamp"] if "timestamp" in python_response else None
-    if current_timestamp_string == None:
-        fail("Timestamp key not present in python_response")
+    try:
+        current_timestamp = float(python_response)
+    except ValueError:
+        fail("Failed to convert python_response to float.")
 
-    current_timestamp = float(current_timestamp_string)  
     return int(current_timestamp + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME)
